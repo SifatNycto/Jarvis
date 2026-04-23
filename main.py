@@ -1,5 +1,4 @@
 from core.listen import record_audio
-from core.transcribe import transcribe_audio
 
 
 def main():
@@ -7,16 +6,10 @@ def main():
 
     audio_file = record_audio(duration=5)
 
-    if not audio_file:
-        print("⚠️ No usable audio")
-        return
-
-    text = transcribe_audio(audio_file)
-
-    if text:
-        print("✅ Transcription complete")
+    if audio_file:
+        print("🎧 Audio captured successfully.")
     else:
-        print("⚠️ Could not understand audio")
+        print("⚠️ No usable audio.")
 
 
 if __name__ == "__main__":
