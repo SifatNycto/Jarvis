@@ -1,0 +1,8 @@
+sounddevice
+scipy
+faster-whisper
+pyttsx3
+requests
+python-dotenv
+numpy
+torch
