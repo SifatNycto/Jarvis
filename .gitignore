@@ -1,0 +1,26 @@
+# 🔐 Environment variables (VERY IMPORTANT)
+.env
+
+# 🐍 Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# 📦 Virtual environment
+.venv/
+venv/
+env/
+
+# 🧠 VS Code settings
+.vscode/
+
+# 📝 Logs
+*.log
+
+# 📦 System files
+.DS_Store
+Thumbs.db
+
+# 🔧 Build / temp files
+*.tmp
+*.temp
