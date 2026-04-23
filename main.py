@@ -1,15 +1,20 @@
 from core.listen import record_audio
+from core.transcribe import transcribe_audio
+from core.brain import ask_llm
 
 
 def main():
     print("JARVIS is listening...")
 
     audio_file = record_audio(duration=5)
+    if not audio_file:
+        return
 
-    if audio_file:
-        print("🎧 Audio captured successfully")
-    else:
-        print("⚠️ No usable audio")
+    text = transcribe_audio(audio_file)
+    if not text:
+        return
+
+    ask_llm(text)
 
 
 if __name__ == "__main__":
