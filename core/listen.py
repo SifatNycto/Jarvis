@@ -2,7 +2,7 @@ import sounddevice as sd
 from scipy.io.wavfile import write
 import numpy as np
 
-SAMPLE_RATE = 16000
+SAMPLE_RATE = 16000  # Best for speech models
 
 
 def record_audio(filename="output.wav", duration=5):
@@ -18,16 +18,16 @@ def record_audio(filename="output.wav", duration=5):
 
         sd.wait()
 
-        # check if silent
+        # Check silence
         if np.max(audio) == 0:
             print("⚠️ No sound detected")
             return None
 
         write(filename, SAMPLE_RATE, audio)
 
-        print(f"✅ Saved: {filename}")
+        print(f"✅ Audio saved as {filename}")
         return filename
 
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"❌ Microphone error: {e}")
         return None
