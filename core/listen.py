@@ -1,14 +1,13 @@
 import sounddevice as sd
 from scipy.io.wavfile import write
 import numpy as np
-import os
 
-SAMPLE_RATE = 16000  # Whisper prefers 16kHz
+SAMPLE_RATE = 16000
 
 
 def record_audio(filename="output.wav", duration=5):
     try:
-        print(f"🎤 Recording for {duration} seconds...")
+        print("🎤 Speak now...")
 
         audio = sd.rec(
             int(duration * SAMPLE_RATE),
@@ -19,16 +18,16 @@ def record_audio(filename="output.wav", duration=5):
 
         sd.wait()
 
-        # Check if audio is silent
+        # check if silent
         if np.max(audio) == 0:
-            print("⚠️ No sound detected.")
+            print("⚠️ No sound detected")
             return None
 
         write(filename, SAMPLE_RATE, audio)
-        print(f"✅ Audio saved as {filename}")
 
+        print(f"✅ Saved: {filename}")
         return filename
 
     except Exception as e:
-        print(f"❌ Microphone error: {e}")
+        print(f"❌ Error: {e}")
         return None
