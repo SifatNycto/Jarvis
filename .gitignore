@@ -25,11 +25,14 @@ Thumbs.db
 *.tmp
 *.temp
 
-# 🔊 Audio files (JARVIS)
-*.wav
-
-# 🖼️ Generated images
-images/
-
 # 🧠 Whisper / model cache (optional but good)
 .cache/
+
+# ignore generated
+*.wav
+images/
+
+# allow samples
+!assets/
+!assets/*.wav
+!assets/*.jpg
