@@ -24,3 +24,12 @@ Thumbs.db
 # 🔧 Build / temp files
 *.tmp
 *.temp
+
+# 🔊 Audio files (JARVIS)
+*.wav
+
+# 🖼️ Generated images
+images/
+
+# 🧠 Whisper / model cache (optional but good)
+.cache/
