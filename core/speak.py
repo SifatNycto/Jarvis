@@ -1,24 +1,21 @@
 import pyttsx3
 
-engine = pyttsx3.init()
-
-voices = engine.getProperty('voices')
-
-
-# 👇 TEMP DEBUG (ADD THIS) || for checking voice model
-# for v in voices:
-#     print(v.id)
-
-    
-engine.setProperty('voice', voices[1].id)
-
 
 def speak(text):
     try:
+        engine = pyttsx3.init()  # 🔥 create fresh engine every time
+
+        voices = engine.getProperty('voices')
+        engine.setProperty('voice', voices[0].id)  # change index if needed
+
+        engine.setProperty('rate', 175)  # optional: speed
+
         print("🔊 Speaking...")
-        
+
         engine.say(text)
         engine.runAndWait()
-        
+
+        engine.stop()  # 🔥 important cleanup
+
     except Exception as e:
         print(f"❌ TTS error: {e}")
