@@ -6,3 +6,6 @@ requests
 python-dotenv
 numpy
 torch
+
+taskkill /IM ollama.exe /F
+for shutdown ollama

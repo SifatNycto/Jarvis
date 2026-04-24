@@ -7,7 +7,7 @@ SAMPLE_RATE = 16000  # Best for speech models
 
 def record_audio(filename="output.wav", duration=5):
     try:
-        print("🎤 Speak now...")
+        print("🎤 Speak now... (about to record)")
 
         audio = sd.rec(
             int(duration * SAMPLE_RATE),
@@ -17,9 +17,11 @@ def record_audio(filename="output.wav", duration=5):
         )
 
         sd.wait()
+        
+        print("Max audio level:", np.max(np.abs(audio)))
 
         # Check silence
-        if np.max(audio) == 0:
+        if np.max(np.abs(audio)) < 500:
             print("⚠️ No sound detected")
             return None
 

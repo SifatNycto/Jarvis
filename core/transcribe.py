@@ -1,7 +1,9 @@
+print("🚀 Loading Whisper model...")
+
 from faster_whisper import WhisperModel
 
 # Load model once (important)
-model_size = "base"
+model_size = "small"
 model = WhisperModel(model_size, compute_type="int8")
 
 
