@@ -5,20 +5,26 @@ from core.speak import speak
 
 
 def main():
-    print("JARVIS is listening...")
+    print("🤖 JARVIS is online... (say 'shutdown' to stop)\n")
 
-    audio_file = record_audio(duration=7)
-    if not audio_file:
-        return
+    while True:
+        audio_file = record_audio(duration=7)
+        if not audio_file:
+            continue
 
-    text = transcribe_audio(audio_file)
-    if not text:
-        return
+        text = transcribe_audio(audio_file)
+        if not text:
+            continue
 
-    reply = ask_llm(text)
+        # Exit condition
+        if "shutdown" in text.lower():
+            print("👋 Shutting down JARVIS...")
+            break
 
-    if reply:
-        speak(reply)
+        reply = ask_llm(text)
+
+        if reply:
+            speak(reply)
 
 
 if __name__ == "__main__":
