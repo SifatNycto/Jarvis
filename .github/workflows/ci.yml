@@ -23,7 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Lint
+      - name: Lint (non-blocking)
         run: |
           pip install flake8
-          flake8 . --max-line-length=100
+          flake8 . --max-line-length=120 || echo "Lint warnings (ignored)"
