@@ -24,7 +24,7 @@ def main():
             print("👋 Shutting down JARVIS...")
             break
 
-        # 🖼️ Image command detection (IMPROVED)
+        # For Image command detection (IMPROVED)
         if "generate" in text_lower and "image" in text_lower:
             # Remove trigger words cleanly
             prompt = text_lower.replace("generate", "").replace("image", "").strip()
@@ -42,7 +42,7 @@ def main():
 
             continue  # skip normal AI
 
-        # 🤖 Normal AI response
+        # Normal AI response
         reply = ask_llm(text)
 
         if reply:
